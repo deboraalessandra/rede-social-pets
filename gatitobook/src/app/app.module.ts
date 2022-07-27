@@ -12,7 +12,8 @@ import { HomeModule } from './home/home.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HomeModule //expondo o home no home.module e importando no app module posso chamar no appComponent
+    //HomeModule //expondo o home no home.module e importando no app module posso chamar no appComponent
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
