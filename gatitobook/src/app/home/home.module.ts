@@ -6,12 +6,14 @@ import { HomeComponent } from './home.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { MensagemModule } from '../componentes/mensagem/mensagem.module';
+import { NovoUsuarioComponent } from './novo-usuario/novo-usuario.component';
 // toda vez que criar um componente novo é necessário declarar ele no module
 
 @NgModule({
   declarations: [
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    NovoUsuarioComponent
   ],
   imports: [
     CommonModule,
