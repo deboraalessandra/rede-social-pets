@@ -11,7 +11,11 @@ const routes: Routes = [ //array de rotas
     path: 'home', //assim que o usuário acessar home irá carregar essa rota
     loadChildren:()=> import('./home/home.module').then((m)=> m.HomeModule),
     //then vai retonar uma promisse que é o M
-  }
+  },
+  {
+    path: 'animais',
+    loadChildren:()=> import('./animais/animais.module').then((m)=> m.AnimaisModule),
+  },
 ];
 
 @NgModule({
