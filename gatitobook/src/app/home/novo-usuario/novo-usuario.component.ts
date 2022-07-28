@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NovoUsuario } from './novo-usuario';
 import { NovoUsuarioService } from './novo-usuario.service';
 
@@ -20,8 +20,11 @@ export class NovoUsuarioComponent implements OnInit {
     // o lugar correto de fazer isso é nesse metodo pq ele é executado após a classe injetar tds
     // os serviços, ou seja, a conclusão da classe ser feita com sucesso.
     this.novoUsuarioForm = this.formBuilder.group({
-      email:[''], // elementos que terão no formulário
-      fullName:[''], //mesmo nome de atributo da interface para facilitar depois a conversão
+      // elementos que terão no formulário
+      // Mesmo nome de atributo da interface para facilitar depois a conversão
+      email:['',  //Criação de validação padrão no nosso usuário
+      [Validators.required, Validators.email]],
+      fullName:['', [Validators.required, Validators.minLength(4)]],
       userName:[''],
       password:[''],
     });
