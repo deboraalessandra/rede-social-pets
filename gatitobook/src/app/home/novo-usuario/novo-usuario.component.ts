@@ -9,24 +9,27 @@ import { NovoUsuarioService } from './novo-usuario.service';
   styleUrls: ['./novo-usuario.component.css']
 })
 export class NovoUsuarioComponent implements OnInit {
-  novoUsuarioForm!: FormGroup;
+  novoUsuarioForm!: FormGroup; //atributo que representa o estado do form
+  // como não está inicializando tem que dizer se é nulo ou não usando o !
 
-  constructor(private formBuilder: FormBuilder,
-              private novoUsuarioService: NovoUsuarioService)
+  constructor(private formBuilder: FormBuilder, //servico p/ utilizar forms reativos
+              private novoUsuarioService: NovoUsuarioService) // serviço p/ gravar new user
               { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { //agr vamos construir o obj novoUsuarioForm e pra isso usaremos o serviço FormBuilder.
+    // o lugar correto de fazer isso é nesse metodo pq ele é executado após a classe injetar tds
+    // os serviços, ou seja, a conclusão da classe ser feita com sucesso.
     this.novoUsuarioForm = this.formBuilder.group({
-      email:[''],
-      fullName:[''],
+      email:[''], // elementos que terão no formulário
+      fullName:[''], //mesmo nome de atributo da interface para facilitar depois a conversão
       userName:[''],
       password:[''],
     });
   }
-  cadastrar(){
+  cadastrar(){ // método que será executado dps que ele for submetido no evento onsubmit
     const novoUsuario = this.novoUsuarioForm.getRawValue() as NovoUsuario;
     console.log(novoUsuario);
-  }
+  } // o getRawValue vai retornar um obj c/ o estado da variável que a view informou
 
 
 }
