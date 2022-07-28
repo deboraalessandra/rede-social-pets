@@ -32,6 +32,11 @@ Registre-se e mostre seu pet ao mundo!
     <input placeholder="Usuário"
            class="form-control"
            formControlName="userName">
+           <app-mensagem
+           *ngIf="novoUsuarioForm.get('userName')?.errors?.['minusculo'] &&
+           novoUsuarioForm.get('fullName')?.touched"
+          mensagem="Usuário deve conter apenas letras minúsculas"
+        > </app-mensagem>
   </div>
   <div class="mb-3">
     <input placeholder="Senha"
