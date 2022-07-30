@@ -12,4 +12,8 @@ export class NovoUsuarioService {
   cadastraNovoUsuario(novoUsuario: NovoUsuario) {
     return this.http.post('http://localhost:3000/user/signup', novoUsuario);
   }
+  // aqui fica a requisição pro backend
+  verificaUsuarioExistente(nomeUsuario: string){// aqui foi usado template string
+    return this.http.get(`http://localhost:3000/user/exists/${nomeUsuario}`) //vai retornar um Obsevable
+  }
 }

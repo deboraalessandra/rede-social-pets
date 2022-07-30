@@ -37,6 +37,10 @@ Registre-se e mostre seu pet ao mundo!
            novoUsuarioForm.get('fullName')?.touched"
           mensagem="Usuário deve conter apenas letras minúsculas"
         > </app-mensagem>
+        <app-mensagem
+        *ngIf="novoUsuarioForm.get('userName')?.errors?.['usuarioExistente']"
+        mensagem="Usuário já existe"
+        ></app-mensagem>
   </div>
   <div class="mb-3">
     <input placeholder="Senha"

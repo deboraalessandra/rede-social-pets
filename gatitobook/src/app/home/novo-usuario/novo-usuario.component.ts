@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { minusculoValidator } from './minusculo.validator';
 import { NovoUsuario } from './novo-usuario';
 import { NovoUsuarioService } from './novo-usuario.service';
+import { UsuarioExisteService } from './usuario-existe.service';
 
 @Component({
   selector: 'app-novo-usuario',
@@ -14,7 +15,8 @@ export class NovoUsuarioComponent implements OnInit {
   // como não está inicializando tem que dizer se é nulo ou não usando o !
 
   constructor(private formBuilder: FormBuilder, //servico p/ utilizar forms reativos
-              private novoUsuarioService: NovoUsuarioService) // serviço p/ gravar new user
+              private novoUsuarioService: NovoUsuarioService, // serviço p/ gravar new user
+              private usuarioExistenteService: UsuarioExisteService) //injetar o serviço que criamos
               { }
 
   ngOnInit(): void { //agr vamos construir o obj novoUsuarioForm e pra isso usaremos o serviço FormBuilder.
@@ -26,9 +28,13 @@ export class NovoUsuarioComponent implements OnInit {
       email:['',  //Criação de validação padrão no nosso usuário
       [Validators.required, Validators.email]],
       fullName:['', [Validators.required, Validators.minLength(4)]],
-      userName:['', [minusculoValidator]],
+      userName:['', [minusculoValidator],[this.usuarioExistenteService.usuarioJaExiste()]],
       password:[''],
-    });
+    },
+    {
+      //validators : [usuarioSenhaIguaisValidator],
+    }
+    );
   }
   cadastrar(){ // método que será executado dps que ele for submetido no evento onsubmit
     const novoUsuario = this.novoUsuarioForm.getRawValue() as NovoUsuario;
