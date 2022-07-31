@@ -47,6 +47,11 @@ Registre-se e mostre seu pet ao mundo!
            type="password"
            class="form-control"
            formControlName="password">
+           <app-mensagem
+      *ngIf="novoUsuarioForm.errors?.['senhaIgualUsuario']"
+      mensagem="Senha deve ser diferente do usuário"
+    >
+    </app-mensagem>
   </div>
   <div  class="d-grid gap-2">
     <button class="btn btn-primary block">
