@@ -34,7 +34,8 @@ export class NovoUsuarioComponent implements OnInit {
     },
     {
       validators : [usuarioSenhaIguaisValidator],
-    }
+    },
+
     );
   }
   cadastrar(){ // método que será executado dps que ele for submetido no evento onsubmit
