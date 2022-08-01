@@ -19,7 +19,7 @@ import { RodapeModule } from './componentes/rodape/rodape.module';
     //HomeModule //expondo o home no home.module e importando no app module posso chamar no appComponent
     HttpClientModule,
     CabecalhoModule, // preciso importar ele aqui para aparecer em todas as paginas, em todos os componentes
-    RodapeModule,
+    RodapeModule, // preciso importar ele aqui para aparecer em todas as paginas, em todos os componentes
   ],
   providers: [],
   bootstrap: [AppComponent]
