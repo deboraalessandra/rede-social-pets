@@ -11,17 +11,17 @@ export class TokenService {
   //alguns metodos para a classe
   retornaToken() {
     return localStorage.getItem(KEY) ?? ''; // retornar o localStorage
-  } // se não pehar a chave vai retornar uma variável em branco
+  } // se não pegar a chave vai retornar uma variável em branco
 
   salvaToken(token: string) { // receber o token que vai ser uma string
     localStorage.setItem(KEY, token); // e setar o token que receber
   }
 
-  excluiToten() { // par remover o token
+  excluiToken() { // par remover o token
     localStorage.removeItem(KEY);
   }
 
-  possuiToten() { // retorna uma aplicação q se tem ou não token guardado
+  possuiToken() { // retorna uma aplicação q se tem ou não token guardado
     return !! this.retornaToken(); // retorna uma boolean
   }
 }
