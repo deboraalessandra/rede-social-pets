@@ -12,17 +12,19 @@ export class AutenticacaoService {
               private usuarioService: UsuarioService) { }
 
   autenticar(usuario: string, senha: string): Observable<HttpResponse<any>>{
-    return this.httpCliente.post('http://localhost:3000/user/login', {
+    return this.httpCliente
+    .post(
+      'http://localhost:3000/user/login',
+      {
       userName: usuario,
       password: senha,
     },
     {
-      observe: 'response'
-    }
+      observe: 'response' }
     )
     .pipe(
       tap((res) => {
-        const authToken = res.headers.get('x-acess-token') ?? '';
+        const authToken = res.headers.get('x-access-token') ?? '';
         this.usuarioService.salvaToken(authToken);
       })
     );
