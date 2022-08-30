@@ -1,0 +1,12 @@
+<div class="card border-light text-center">
+
+   <!--esse NgIf é para aparecer o título somente se tiver título-->
+  <h4 class="card-header" *ngIf="titulo">{{titulo}}</h4>
+
+  <!--Div que vai conter o conteúdo do cartão-->
+  <div class="card-block text-justify">
+     <!--esse NgContent é uma diretiva padrão que faz a projeção do conteúdo-->
+    <ng-content></ng-content>
+  </div>
+
+</div>
