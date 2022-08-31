@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
-const API = 'http://localhost:3000'; //para pegar as img na API
+// const API = 'http://localhost:3000'; //para pegar as img na API
+const API = environment.apiURL; //Substituí por environment
 
 @Component({
   selector: 'app-animal',
