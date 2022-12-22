@@ -13,7 +13,7 @@ export class AnimalComponent implements OnInit {
 
   private urlOriginal = '';
 
-  @Input() descricao ='';
+  @Input() descricao = ''; //decorator para receber informação
 
   @Input() set url(url: string) {
     if (url.startsWith('dat'))

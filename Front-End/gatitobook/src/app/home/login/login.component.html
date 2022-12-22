@@ -1,13 +1,12 @@
 <h4 class="text-center">Login</h4>
-
+<!-- NgSubmit é um evento do Formulário do Angular do tipo template-->
 <form class="form mt-4" (ngSubmit)="login()" #loginForm="ngForm">
   <div class="mb-3">
     <input class="form-control" placeholder="Nome do usuário"
        [(ngModel)]="usuario"
         name="usuario"
         #campoUsuario="ngModel"
-        required
-    />
+        required/>
     <app-mensagem
        *ngIf="campoUsuario.invalid && campoUsuario.touched"
        mensagem="Usuário Obrigatório">
@@ -21,8 +20,7 @@
            [(ngModel)]="senha"
            name="senha"
            #campoSenha="ngModel"
-           required
-    />
+           required/>
     <app-mensagem
         *ngIf="campoSenha.invalid && campoSenha.touched"
         mensagem="Senha Obrigatória">
